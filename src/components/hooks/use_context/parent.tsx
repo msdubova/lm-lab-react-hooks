@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Child1 } from "./child_1";
 import { Child2 } from "./child_2";
-import { theme, defaultTheme, ThemeContext } from "./theme_object";
+import { Theme, defaultTheme, ThemeContext } from "./theme_object";
 
 export const Parent = () => {
   const [darkTheme, setDarkTheme] = useState(true);
@@ -11,13 +11,10 @@ export const Parent = () => {
     setDarkTheme((prevDarkTheme) => !prevDarkTheme);
     setCurrentTheme(() => {
       const newColours = () => {
-        if (darkTheme === true) {
-          return ["#333", "white"];
-        } else {
-          return ["#ccc", "#333"];
-        }
+        return darkTheme ? ["#333", "white"] : ["#ccc", "#333"];
       };
-      const newTheme: theme = {
+
+      const newTheme: Theme = {
         backgroundColor: newColours()[0],
         color: newColours()[1],
         padding: currentTheme.padding,

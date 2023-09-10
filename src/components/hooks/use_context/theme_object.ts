@@ -1,5 +1,5 @@
 import { createContext } from "react";
-export interface theme {
+export interface Theme {
   backgroundColor: string;
   color: string;
   padding: string;
@@ -8,11 +8,11 @@ export interface theme {
 
 const darkTheme = false;
 
-export const defaultTheme: theme = {
+export const defaultTheme: Theme = {
   backgroundColor: darkTheme ? "#333" : "#CCC",
   color: darkTheme ? "white" : "#333",
   padding: "2rem",
   margin: "2rem",
 };
 
-export const ThemeContext = createContext<theme>(defaultTheme);
+export const ThemeContext = createContext<Theme>(defaultTheme);
